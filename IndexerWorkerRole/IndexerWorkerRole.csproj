@@ -104,6 +104,10 @@
       <Project>{ec6cabdc-0046-4e95-8e73-17c80aa03dbe}</Project>
       <Name>ElasticsearchIndexer.Infrastructure</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ElasticsearchIndexer.Models\ElasticsearchIndexer.Models.csproj">
+      <Project>{941d4691-dbf6-43e6-a2df-699f9d2998c4}</Project>
+      <Name>ElasticsearchIndexer.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

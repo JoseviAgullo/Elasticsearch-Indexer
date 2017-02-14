@@ -1,4 +1,5 @@
 ﻿using ElasticsearchIndexer.Infrastructure.Elasticsearch;
+using ElasticsearchIndexer.Infrastructure.Repository;
 using StructureMap;
 
 namespace ElasticsearchIndexer.Infrastructure.DependencyInjection
@@ -8,6 +9,7 @@ namespace ElasticsearchIndexer.Infrastructure.DependencyInjection
         public InfrastructureRegistry()
         {
             For<IElasticsearchClientFactory>().Use<ElasticsearchClientFactory>();
+            For<IProductRepository>().Use<ProductRepository>();
         }
     }
 }

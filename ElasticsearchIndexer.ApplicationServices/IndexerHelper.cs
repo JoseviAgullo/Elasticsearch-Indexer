@@ -1,34 +1,41 @@
-﻿namespace ElasticsearchIndexer.ApplicationServices
+﻿using ElasticsearchIndexer.Infrastructure.Elasticsearch;
+using ElasticsearchIndexer.Infrastructure.Repository;
+
+namespace ElasticsearchIndexer.ApplicationServices
 {
-    public class IndexerHelper
+    public class IndexerHelper : IIndexerHelper
     {
+        private readonly IIndexMaintainer _elasticIndexMaintainer;
+        private readonly IProductRepository _productRepository;
+
+        public IndexerHelper(IIndexMaintainer elasticIndexMaintainer, IProductRepository productRepository)
+        {
+            _elasticIndexMaintainer = elasticIndexMaintainer;
+            _productRepository = productRepository;
+        }
+
         public bool CreateNewIndex(string newIndexName)
         {
-            var indexExists = IndexExists(newIndexName);
+            var indexExists = _elasticIndexMaintainer.IndexExists(newIndexName);
 
             if (indexExists)
             {
-                DeleteExistingIndex(newIndexName);
+                _elasticIndexMaintainer.DeleteIndex(newIndexName);
             }
 
-            CreateNewIndex(newIndexName);
+            _elasticIndexMaintainer.CreateIndex(newIndexName);
 
-            return IndexExists(newIndexName);
+            return _elasticIndexMaintainer.IndexExists(newIndexName);
         }
 
-        private void DeleteExistingIndex(string newIndexName)
+        public bool IsIndexCorrectlyCreated(string indexName)
         {
-            throw new System.NotImplementedException();
+            return _elasticIndexMaintainer.IndexContainsDocuments(indexName);
         }
 
-        private bool IndexExists(string newIndexName)
+        public void IndexEntries()
         {
-            throw new System.NotImplementedException();
-        }
-
-        public void IndexData()
-        {
-            throw new System.NotImplementedException();
+            var products = _productRepository.GetAllProducts();
         }
     }
 }

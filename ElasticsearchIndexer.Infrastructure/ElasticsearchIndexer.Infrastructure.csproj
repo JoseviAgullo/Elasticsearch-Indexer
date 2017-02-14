@@ -59,13 +59,22 @@
     <Compile Include="DependencyInjection\InfrastructureRegistry.cs" />
     <Compile Include="Elasticsearch\IElasticsearchClientFactory.cs" />
     <Compile Include="Elasticsearch\ElasticsearchClientFactory.cs" />
+    <Compile Include="Elasticsearch\IIndexMaintainer.cs" />
     <Compile Include="Elasticsearch\IndexMaintainer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\IProductRepository.cs" />
+    <Compile Include="Repository\ProductRepository.cs" />
     <Compile Include="Settings\IInfrastructureSettings.cs" />
     <Compile Include="Settings\InfrastructureSettings.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\ElasticsearchIndexer.Models\ElasticsearchIndexer.Models.csproj">
+      <Project>{941d4691-dbf6-43e6-a2df-699f9d2998c4}</Project>
+      <Name>ElasticsearchIndexer.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App_Data\Products.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

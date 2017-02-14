@@ -2,6 +2,7 @@ using System.Diagnostics;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
+using ElasticsearchIndexer.Infrastructure.Repository;
 using IndexerWorkerRole.DependencyInjection;
 using Microsoft.WindowsAzure.ServiceRuntime;
 using StructureMap;
@@ -17,6 +18,10 @@ namespace IndexerWorkerRole
         public override void Run()
         {
             Trace.TraceInformation("IndexerWorkerRole is running");
+
+            var productRepo = new ProductRepository();
+
+            var a = productRepo.GetAllProducts();
 
             try
             {

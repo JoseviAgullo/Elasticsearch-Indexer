@@ -1,4 +1,5 @@
-﻿using ElasticsearchIndexer.Infrastructure.DependencyInjection;
+﻿using ElasticsearchIndexer.ApplicationServices.DependencyInjection;
+using ElasticsearchIndexer.Infrastructure.DependencyInjection;
 using StructureMap;
 
 namespace IndexerWorkerRole.DependencyInjection
@@ -10,6 +11,7 @@ namespace IndexerWorkerRole.DependencyInjection
             return new Container(c =>
             {
                 c.AddRegistry<InfrastructureRegistry>();
+                c.AddRegistry<ApplicationServiceRegistry>();
             });
         }
     }
