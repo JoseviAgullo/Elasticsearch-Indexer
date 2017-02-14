@@ -2,7 +2,9 @@ using System.Diagnostics;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
+using IndexerWorkerRole.DependencyInjection;
 using Microsoft.WindowsAzure.ServiceRuntime;
+using StructureMap;
 
 namespace IndexerWorkerRole
 {
@@ -10,6 +12,7 @@ namespace IndexerWorkerRole
     {
         private readonly CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
         private readonly ManualResetEvent runCompleteEvent = new ManualResetEvent(false);
+        private IContainer _container;
 
         public override void Run()
         {
@@ -32,6 +35,8 @@ namespace IndexerWorkerRole
 
             // For information on handling configuration changes
             // see the MSDN topic at http://go.microsoft.com/fwlink/?LinkId=166357.
+
+            _container = IoC.Initialize();
 
             bool result = base.OnStart();
 

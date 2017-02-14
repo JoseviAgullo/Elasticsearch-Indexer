@@ -25,5 +25,10 @@
         {
             throw new System.NotImplementedException();
         }
+
+        public void IndexData()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

@@ -70,6 +70,10 @@
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="StructureMap, Version=4.4.2.472, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StructureMap.4.4.2\lib\net45\StructureMap.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Spatial, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -83,12 +87,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DependencyInjection\IoC.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WorkerRole.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ElasticsearchIndexer.ApplicationServices\ElasticsearchIndexer.ApplicationServices.csproj">
+      <Project>{e4ab9f7e-41dd-4b72-8981-62e5b5b0b3f4}</Project>
+      <Name>ElasticsearchIndexer.ApplicationServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ElasticsearchIndexer.Infrastructure\ElasticsearchIndexer.Infrastructure.csproj">
+      <Project>{ec6cabdc-0046-4e95-8e73-17c80aa03dbe}</Project>
+      <Name>ElasticsearchIndexer.Infrastructure</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

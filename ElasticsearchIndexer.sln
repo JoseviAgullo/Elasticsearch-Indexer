@@ -7,6 +7,18 @@ Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "ElasticsearchIndexer", "Ela
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndexerWorkerRole", "IndexerWorkerRole\IndexerWorkerRole.csproj", "{597F59C9-4583-492C-BA6F-0410868B0448}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WorkerRole", "WorkerRole", "{8366F77C-2BDB-4DBB-ABEA-0B3EA1A9386A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElasticsearchIndexer.Models", "ElasticsearchIndexer.Models\ElasticsearchIndexer.Models.csproj", "{941D4691-DBF6-43E6-A2DF-699F9D2998C4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApplicationServices", "ApplicationServices", "{6CC1B54B-9DD0-4A84-82F4-7FDB688BCECC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElasticsearchIndexer.ApplicationServices", "ElasticsearchIndexer.ApplicationServices\ElasticsearchIndexer.ApplicationServices.csproj", "{E4AB9F7E-41DD-4B72-8981-62E5B5B0B3F4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{27945A4C-4DEC-4094-945B-DA721D666FD7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElasticsearchIndexer.Infrastructure", "ElasticsearchIndexer.Infrastructure\ElasticsearchIndexer.Infrastructure.csproj", "{EC6CABDC-0046-4E95-8E73-17C80AA03DBE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,8 +33,26 @@ Global
 		{597F59C9-4583-492C-BA6F-0410868B0448}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{597F59C9-4583-492C-BA6F-0410868B0448}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{597F59C9-4583-492C-BA6F-0410868B0448}.Release|Any CPU.Build.0 = Release|Any CPU
+		{941D4691-DBF6-43E6-A2DF-699F9D2998C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{941D4691-DBF6-43E6-A2DF-699F9D2998C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{941D4691-DBF6-43E6-A2DF-699F9D2998C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{941D4691-DBF6-43E6-A2DF-699F9D2998C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4AB9F7E-41DD-4B72-8981-62E5B5B0B3F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4AB9F7E-41DD-4B72-8981-62E5B5B0B3F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4AB9F7E-41DD-4B72-8981-62E5B5B0B3F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4AB9F7E-41DD-4B72-8981-62E5B5B0B3F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC6CABDC-0046-4E95-8E73-17C80AA03DBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC6CABDC-0046-4E95-8E73-17C80AA03DBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC6CABDC-0046-4E95-8E73-17C80AA03DBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC6CABDC-0046-4E95-8E73-17C80AA03DBE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F20F9E9F-7B5D-43A0-A61C-4E8A204C0AC0} = {8366F77C-2BDB-4DBB-ABEA-0B3EA1A9386A}
+		{597F59C9-4583-492C-BA6F-0410868B0448} = {8366F77C-2BDB-4DBB-ABEA-0B3EA1A9386A}
+		{E4AB9F7E-41DD-4B72-8981-62E5B5B0B3F4} = {6CC1B54B-9DD0-4A84-82F4-7FDB688BCECC}
+		{EC6CABDC-0046-4E95-8E73-17C80AA03DBE} = {27945A4C-4DEC-4094-945B-DA721D666FD7}
 	EndGlobalSection
 EndGlobal

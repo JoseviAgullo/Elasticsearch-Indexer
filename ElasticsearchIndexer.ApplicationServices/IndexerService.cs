@@ -18,6 +18,8 @@ namespace ElasticsearchIndexer.ApplicationServices
             var indexerHelper = new IndexerHelper();
 
             indexerHelper.CreateNewIndex(newIndexName);
+
+            indexerHelper.IndexData();
         }
     }
 }
