@@ -7,7 +7,6 @@ namespace ElasticsearchIndexer.Infrastructure.DependencyInjection
     {
         public InfrastructureRegistry()
         {
-            For<IElasticsearchCustomClient>().Use<ElasticsearchCustomClient>();
             For<IElasticsearchClientFactory>().Use<ElasticsearchClientFactory>();
         }
     }

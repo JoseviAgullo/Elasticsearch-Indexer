@@ -1,12 +1,14 @@
-﻿namespace ElasticsearchIndexer.Infrastructure.Elasticsearch
+﻿using Nest;
+
+namespace ElasticsearchIndexer.Infrastructure.Elasticsearch
 {
     public class IndexMaintainer
     {
-        private readonly IElasticsearchCustomClient _elasticsearchCustomClient;
+        private readonly IElasticClient _elasticsearchCustomClient;
 
-        public IndexMaintainer(IElasticsearchCustomClient elasticsearchCustomClient)
+        public IndexMaintainer(IElasticsearchClientFactory elasticsearchCustomClient)
         {
-            _elasticsearchCustomClient = elasticsearchCustomClient;
+            _elasticsearchCustomClient = elasticsearchCustomClient.GetElasticClient();
         }
 
         public virtual bool IndexExists(string indexName)
