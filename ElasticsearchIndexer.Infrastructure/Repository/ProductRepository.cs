@@ -20,10 +20,10 @@ namespace ElasticsearchIndexer.Infrastructure.Repository
                 new Product
                 {
                     Id = 2,
-                    Name = "Bicicleta de montanya",
+                    Name = "Bicicleta de montaña",
                     Description = "Bicicleta preparada para los terrenos más complicados",
                     Keywords =
-                        new List<string> { "bicicleta", "montanya", "mountain", "bike", "mountainbike", "mountain-bike" },
+                        new List<string> { "bicicleta", "montaña", "mountain", "bike", "mountainbike", "mountain-bike" },
                     Price = 20
                 },
                 new Product
@@ -37,9 +37,9 @@ namespace ElasticsearchIndexer.Infrastructure.Repository
                 new Product
                 {
                     Id = 4,
-                    Name = "Munyeca bebé",
-                    Description = "Una munyeca que representa fielmente un bebé",
-                    Keywords = new List<string> { "munyeca", "bebé" },
+                    Name = "Muñeca bebé",
+                    Description = "Una muñeca que representa fielmente un bebé",
+                    Keywords = new List<string> { "muñeca", "bebé" },
                     Price = 40
                 },
                 new Product

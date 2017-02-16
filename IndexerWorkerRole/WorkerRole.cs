@@ -1,7 +1,9 @@
+using System;
 using System.Diagnostics;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
+using ElasticsearchIndexer.ApplicationServices;
 using ElasticsearchIndexer.Infrastructure.Repository;
 using IndexerWorkerRole.DependencyInjection;
 using Microsoft.WindowsAzure.ServiceRuntime;
@@ -19,13 +21,14 @@ namespace IndexerWorkerRole
         {
             Trace.TraceInformation("IndexerWorkerRole is running");
 
-            var productRepo = new ProductRepository();
-
-            var a = productRepo.GetAllProducts();
-
             try
             {
-                this.RunAsync(this.cancellationTokenSource.Token).Wait();
+                _container.GetInstance<IIndexerService>().CreateIndex(DateTime.Now);
+            }
+            catch (Exception ex)
+            {
+                var error = ex.Message;
+                throw;
             }
             finally
             {

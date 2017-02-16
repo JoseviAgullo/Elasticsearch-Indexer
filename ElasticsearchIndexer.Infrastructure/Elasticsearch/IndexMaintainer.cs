@@ -1,4 +1,7 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using ElasticsearchIndexer.Models;
 using Nest;
 
@@ -34,6 +37,18 @@ namespace ElasticsearchIndexer.Infrastructure.Elasticsearch
         public bool IndexContainsDocuments(string indexName)
         {
             return _elasticsearchClient.Search<dynamic>(s => s.Index(indexName).AllTypes().From(0).Size(10).MatchAll()).Documents.Any();
+        }
+
+        public IEnumerable<Task<IBulkResponse>> IndexProducts(string indexName, List<Product> products)
+        {
+            var bulkProviderLocation = new BulkProviderClient(indexName, _elasticsearchClient);
+
+            foreach (var product in products)
+            {
+                bulkProviderLocation.Create<Product>(c => c.Document(product));
+            }
+
+            return bulkProviderLocation.GetTasks();
         }
     }
 }

@@ -1,9 +1,11 @@
-﻿namespace ElasticsearchIndexer.ApplicationServices
+﻿using System.Threading.Tasks;
+
+namespace ElasticsearchIndexer.ApplicationServices
 {
     public interface IIndexerHelper
     {
         bool CreateNewIndex(string newIndexName);
         bool IsIndexCorrectlyCreated(string indexName);
-        void IndexEntries();
+        Task IndexEntries(string indexName);
     }
 }

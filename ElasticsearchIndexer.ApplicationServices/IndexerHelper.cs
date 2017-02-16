@@ -1,5 +1,8 @@
-﻿using ElasticsearchIndexer.Infrastructure.Elasticsearch;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using ElasticsearchIndexer.Infrastructure.Elasticsearch;
 using ElasticsearchIndexer.Infrastructure.Repository;
+using Nest;
 
 namespace ElasticsearchIndexer.ApplicationServices
 {
@@ -33,9 +36,15 @@ namespace ElasticsearchIndexer.ApplicationServices
             return _elasticIndexMaintainer.IndexContainsDocuments(indexName);
         }
 
-        public void IndexEntries()
+        public async Task IndexEntries(string indexName)
         {
+            var bulkProductTasks = new List<Task<IBulkResponse>>();
+
             var products = _productRepository.GetAllProducts();
+
+            bulkProductTasks.AddRange(_elasticIndexMaintainer.IndexProducts(indexName, products));
+
+            await Task.WhenAll(bulkProductTasks);
         }
     }
 }

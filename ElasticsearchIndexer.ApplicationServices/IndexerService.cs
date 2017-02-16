@@ -17,9 +17,12 @@ namespace ElasticsearchIndexer.ApplicationServices
         {
             var newIndexName = $"elasticIndexer-{dateTime.ToString("yyyy-MM-dd-HH-mm")}".ToLower(CultureInfo.InvariantCulture);
 
-            _indexerHelper.CreateNewIndex(newIndexName);
+            var indexCreated = _indexerHelper.CreateNewIndex(newIndexName);
 
-            _indexerHelper.IndexEntries();
+            if (indexCreated)
+            {
+                await _indexerHelper.IndexEntries(newIndexName);
+            }
         }
     }
 }

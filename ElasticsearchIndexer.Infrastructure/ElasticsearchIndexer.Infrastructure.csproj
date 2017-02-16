@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DependencyInjection\InfrastructureRegistry.cs" />
+    <Compile Include="Elasticsearch\BulkProviderClient.cs" />
     <Compile Include="Elasticsearch\IElasticsearchClientFactory.cs" />
     <Compile Include="Elasticsearch\ElasticsearchClientFactory.cs" />
     <Compile Include="Elasticsearch\IIndexMaintainer.cs" />
@@ -74,7 +75,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App_Data\Products.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
